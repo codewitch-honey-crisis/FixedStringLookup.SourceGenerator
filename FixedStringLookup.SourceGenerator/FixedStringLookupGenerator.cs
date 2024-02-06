@@ -37,7 +37,7 @@ namespace FixedStringLookup.SourceGenerator
 		internal static bool Contains(string[][] lookupTable, string value)
 		{
 			int length = value.Length;
-			if (length <= 0 || length >= lookupTable.Length)
+			if (length >= lookupTable.Length)
 				return false;
 			string[] array = lookupTable[length];
 			return array != null && _Contains(array, value);
@@ -187,7 +187,7 @@ namespace FixedStringLookup.SourceGenerator
 				sb.AppendLine("new string[0];");
 				return;
 			}
-			var count = strings[strings.Length - 1].Length;
+			var count = strings[strings.Length - 1].Length+1;
 			sb.AppendLine("new string[" + count + "][] {");
 			var si = 0;
 			var strs = new List<string>(strings.Length);
@@ -390,8 +390,8 @@ namespace FixedStringLookup.SourceGenerator
 				SourceText.From(_CoreImpl, Encoding.UTF8)));
 			IncrementalValuesProvider<MethodDeclarationSyntax> toGenerate = context.SyntaxProvider
 		   .CreateSyntaxProvider(
-			   predicate: static (s, _) => _IsSyntaxTargetForGeneration(s), // select enums with attributes
-			   transform: static (ctx, _) => _GetSemanticTargetForGeneration(ctx)) // select enums with the [EnumExtensions] attribute and extract details
+			   predicate: static (s, _) => _IsSyntaxTargetForGeneration(s), // select methods with attributes
+			   transform: static (ctx, _) => _GetSemanticTargetForGeneration(ctx)) // select methods with the [FixedStringLookup] attribute and extract details
 		   .Where(static m => m is not null); // Filter out errors that we don't care about
 			IncrementalValueProvider<(Compilation, ImmutableArray<MethodDeclarationSyntax>)> compilationAndMethods
 			   = context.CompilationProvider.Combine(toGenerate.Collect());

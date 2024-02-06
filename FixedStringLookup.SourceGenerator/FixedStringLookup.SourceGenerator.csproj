@@ -5,7 +5,7 @@
     <LangVersion>Latest</LangVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Fixed String Lookup Source Generator</Title>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors>honey the codewitch</Authors>
     <Description>Provides fast fixed string lookups for strings known at compile time</Description>
     <Copyright>Copyright (C) 2024 by honey the codewitch</Copyright>
