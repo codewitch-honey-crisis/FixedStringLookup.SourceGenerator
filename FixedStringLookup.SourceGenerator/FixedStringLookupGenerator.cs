@@ -37,9 +37,9 @@ namespace FixedStringLookup.SourceGenerator
 		internal static bool Contains(string[][] lookupTable, string value)
 		{
 			int length = value.Length;
-			if (length <= 0 || length - 1 >= lookupTable.Length)
+			if (length <= 0 || length >= lookupTable.Length)
 				return false;
-			string[] array = lookupTable[length - 1];
+			string[] array = lookupTable[length];
 			return array != null && _Contains(array, value);
 		}
 

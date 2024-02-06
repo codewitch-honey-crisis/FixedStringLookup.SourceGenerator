@@ -5,12 +5,18 @@
     <LangVersion>Latest</LangVersion>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Fixed String Lookup Source Generator</Title>
-    <Version>$(AssemblyVersion)</Version>
+    <Version>1.1.0</Version>
     <Authors>honey the codewitch</Authors>
     <Description>Provides fast fixed string lookups for strings known at compile time</Description>
     <Copyright>Copyright (C) 2024 by honey the codewitch</Copyright>
     <PackageIcon>FixedStringLookup_icon.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/codewitch-honey-crisis/FixedStringLookup.SourceGenerator</RepositoryUrl>
+    <PackageTags>string;lookup</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <SignAssembly>True</SignAssembly>
+    <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.2" PrivateAssets="all" />
@@ -23,6 +29,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="FixedStringLookup_icon.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
